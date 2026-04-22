@@ -1,0 +1,3 @@
+<ProjectItem>
+  <HostItem Name="ThisAddIn" CanonicalName="AddIn" CanActivate="false" IconIndex="1" />
+</ProjectItem>

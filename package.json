@@ -1,0 +1,14 @@
+{
+  "name": "word-autosave-addin",
+  "version": "1.0.0",
+  "description": "Word Auto-Save Add-in",
+  "scripts": {
+    "dev-server": "office-addin-dev-server",
+    "start": "office-addin-debugging start manifest.xml desktop",
+    "stop": "office-addin-debugging stop manifest.xml"
+  },
+  "devDependencies": {
+    "office-addin-debugging": "^5.0.0",
+    "office-addin-dev-server": "^3.1.5"
+  }
+}

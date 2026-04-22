@@ -1,0 +1,156 @@
+body {
+    font-family: 'Segoe UI', 'Segoe UI Web (West European)', 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', sans-serif;
+    padding: 16px;
+    margin: 0;
+    background-color: #f3f2f1;
+    color: #323130;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+    color: #2b579a; /* Word Blue */
+}
+
+.card {
+    background: #ffffff;
+    padding: 16px;
+    border-radius: 6px;
+    box-shadow: 0 1.6px 3.6px 0 rgba(0,0,0,.132), 0 0.3px 0.9px 0 rgba(0,0,0,.108);
+}
+
+.toggle-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.toggle-label {
+    display: flex;
+    flex-direction: column;
+}
+
+#toggle-status {
+    font-weight: 600;
+    font-size: 16px;
+    color: #2b579a;
+}
+
+.toggle-desc {
+    font-size: 12px;
+    color: #605e5c;
+    margin-top: 2px;
+}
+
+.status-container {
+    background: #ffffff;
+    padding: 16px;
+    border-radius: 6px;
+    box-shadow: 0 1.6px 3.6px 0 rgba(0,0,0,.132), 0 0.3px 0.9px 0 rgba(0,0,0,.108);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s ease;
+}
+
+.status-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #107c10;
+}
+
+.status-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.status-message {
+    font-weight: 600;
+    font-size: 14px;
+    margin: 0 0 4px 0;
+}
+
+.status-message.active {
+    color: #107c10;
+}
+
+.status-message.inactive {
+    color: #a4262c;
+}
+
+#last-saved-time {
+    margin: 0;
+    font-size: 12px;
+    color: #605e5c;
+}
+
+.info-section {
+    font-size: 12px;
+    color: #605e5c;
+    line-height: 1.5;
+    padding: 0 4px;
+}
+
+/* Toggle Switch Styles */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+}
+
+.switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .3s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .3s;
+}
+
+input:checked + .slider {
+    background-color: #2b579a;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 0 2px rgba(43, 87, 154, 0.3);
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+.slider.round {
+    border-radius: 24px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
