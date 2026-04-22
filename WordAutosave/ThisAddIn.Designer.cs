@@ -4,7 +4,7 @@ namespace WordAutosave
 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public sealed partial class ThisAddIn : Microsoft.Office.Tools.Word.AddInBase
+    public sealed partial class ThisAddIn : Microsoft.Office.Tools.AddInBase
     {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
