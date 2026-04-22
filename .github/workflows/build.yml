@@ -20,8 +20,29 @@ jobs:
     - name: Restore NuGet Packages
       run: nuget restore WordAutosave.sln
 
+    - name: Generate Self-Signed Certificate for ClickOnce Signing
+      shell: pwsh
+      run: |
+        $cert = New-SelfSignedCertificate `
+          -Subject "CN=WordAutosave Dev" `
+          -CertStoreLocation "Cert:\CurrentUser\My" `
+          -Type CodeSigningCert `
+          -KeySpec Signature `
+          -KeyUsage DigitalSignature `
+          -FriendlyName "WordAutosave Dev Cert"
+        $password = ConvertTo-SecureString -String "DevPassword123" -Force -AsPlainText
+        $pfxPath = "${{ github.workspace }}\WordAutosave\WordAutosave_TemporaryKey.pfx"
+        Export-PfxCertificate -Cert $cert -FilePath $pfxPath -Password $password
+        Write-Host "Certificate generated at $pfxPath"
+
     - name: Build Solution
-      run: msbuild WordAutosave.sln /p:Configuration=Release /p:Platform="Any CPU"
+      run: |
+        msbuild WordAutosave.sln `
+          /p:Configuration=Release `
+          /p:Platform="Any CPU" `
+          /p:ManifestKeyFile=WordAutosave_TemporaryKey.pfx `
+          /p:ManifestSigningPassword=DevPassword123 `
+          /p:SignManifests=true
 
     - name: Upload Build Artifacts
       uses: actions/upload-artifact@v4
