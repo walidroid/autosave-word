@@ -6,10 +6,13 @@ namespace WordAutosave
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public sealed partial class ThisAddIn : Microsoft.Office.Tools.AddInBase
     {
+        internal Microsoft.Office.Interop.Word.Application Application;
+        internal Microsoft.Office.Tools.CustomTaskPaneCollection CustomTaskPanes;
+
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         public ThisAddIn(global::Microsoft.Office.Tools.Word.Factory factory, global::System.IServiceProvider serviceProvider) : 
-                base(factory, serviceProvider, "AddIn", "ThisAddIn")
+                base((global::Microsoft.Office.Tools.Factory)factory, serviceProvider, "AddIn", "ThisAddIn")
         {
             Globals.Factory = factory;
         }
@@ -99,8 +102,9 @@ namespace WordAutosave
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Tools.Office.ProgrammingModel.dll", "17.0.0.0")]
-        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
-        private void InitializeControls() { }
+        private void InitializeControls() {
+            this.CustomTaskPanes = Globals.Factory.CreateCustomTaskPaneCollection(null, null, "CustomTaskPanes", "CustomTaskPanes", this);
+        }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Tools.Office.ProgrammingModel.dll", "17.0.0.0")]
