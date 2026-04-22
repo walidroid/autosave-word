@@ -33,8 +33,6 @@
     <LoadBehavior>3</LoadBehavior>
     <SignManifests>true</SignManifests>
     <ManifestCertificateThumbprint></ManifestCertificateThumbprint>
-    <ManifestKeyFile>WordAutosave_TemporaryKey.pfx</ManifestKeyFile>
-    <ManifestSigningPassword></ManifestSigningPassword>
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">

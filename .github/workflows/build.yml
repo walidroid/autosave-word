@@ -30,18 +30,15 @@ jobs:
           -KeySpec Signature `
           -KeyUsage DigitalSignature `
           -FriendlyName "WordAutosave Dev Cert"
-        $password = ConvertTo-SecureString -String "DevPassword123" -Force -AsPlainText
-        $pfxPath = "${{ github.workspace }}\WordAutosave\WordAutosave_TemporaryKey.pfx"
-        Export-PfxCertificate -Cert $cert -FilePath $pfxPath -Password $password
-        Write-Host "Certificate generated at $pfxPath"
+        echo "CERT_THUMBPRINT=$($cert.Thumbprint)" >> $env:GITHUB_ENV
+        Write-Host "Certificate generated with Thumbprint $($cert.Thumbprint)"
 
     - name: Build Solution
       run: |
         msbuild WordAutosave.sln `
           /p:Configuration=Release `
           /p:Platform="Any CPU" `
-          /p:ManifestKeyFile=WordAutosave_TemporaryKey.pfx `
-          /p:ManifestSigningPassword=DevPassword123 `
+          /p:ManifestCertificateThumbprint=${{ env.CERT_THUMBPRINT }} `
           /p:SignManifests=true
 
     - name: Upload Build Artifacts
