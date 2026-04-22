@@ -1,4 +1,5 @@
 using System;
+using Microsoft.Office.Tools;
 
 namespace WordAutosave
 {
@@ -103,7 +104,7 @@ namespace WordAutosave
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Tools.Office.ProgrammingModel.dll", "17.0.0.0")]
         private void InitializeControls() {
-            this.CustomTaskPanes = Globals.Factory.CreateCustomTaskPaneCollection(null, null, "CustomTaskPanes", "CustomTaskPanes", this);
+            this.CustomTaskPanes = ((global::Microsoft.Office.Tools.Factory)Globals.Factory).CreateCustomTaskPaneCollection(null, null, "CustomTaskPanes", "CustomTaskPanes", this);
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
